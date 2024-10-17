@@ -1,0 +1,114 @@
+[gd_scene load_steps=9 format=3 uid="uid://l18klgrc3vhm"]
+
+[ext_resource type="Texture2D" uid="uid://cobfnij8yofca" path="res://Godot-Basic-2D-ARPG/Assets/Player/player_sprite.png" id="1_6l4ox"]
+[ext_resource type="Script" path="res://Godot-Basic-2D-ARPG/Player/player.gd" id="1_dnpoq"]
+
+[sub_resource type="Animation" id="Animation_musca"]
+resource_name = "walkDown"
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(0, 1), Vector2i(0, 2), Vector2i(0, 3)]
+}
+
+[sub_resource type="Animation" id="Animation_tp6kv"]
+resource_name = "walkUp"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(1, 0), Vector2i(1, 1), Vector2i(1, 2), Vector2i(1, 3)]
+}
+
+[sub_resource type="Animation" id="Animation_bw1yd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wgo3c"]
+resource_name = "walkLeft"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(2, 0), Vector2i(2, 1), Vector2i(2, 2), Vector2i(2, 3)]
+}
+
+[sub_resource type="Animation" id="Animation_kxhi8"]
+resource_name = "walkRight"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(3, 0), Vector2i(3, 1), Vector2i(3, 2), Vector2i(3, 3)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7l6yq"]
+_data = {
+"RESET": SubResource("Animation_bw1yd"),
+"walkDown": SubResource("Animation_musca"),
+"walkLeft": SubResource("Animation_wgo3c"),
+"walkRight": SubResource("Animation_kxhi8"),
+"walkUp": SubResource("Animation_tp6kv")
+}
+
+[node name="Player" type="CharacterBody2D"]
+texture_filter = 1
+script = ExtResource("1_dnpoq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6l4ox")
+hframes = 4
+vframes = 7
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7l6yq")
+}
