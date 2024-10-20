@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cggtyoc0yjdbm"]
+
+[ext_resource type="Script" path="res://Godot-Basic-2D-ARPG/Player/heart_gui.gd" id="1_ap250"]
+[ext_resource type="Texture2D" uid="uid://tt05ybf2efqs" path="res://Godot-Basic-2D-ARPG/Assets/Player/heart.png" id="1_lwls8"]
+
+[node name="heartGui" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(16, 13)
+offset_right = 16.0
+offset_bottom = 13.0
+script = ExtResource("1_ap250")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 6)
+texture = ExtResource("1_lwls8")
+hframes = 5
+frame = 4
